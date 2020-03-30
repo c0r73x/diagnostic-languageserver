@@ -81,8 +81,8 @@ function handleLinterRegex(output: string, config: ILinterConfig): ILinterResult
         security: m[security],
         line: m[line],
         column: m[column],
-        endLine: endLine != null ? m[endLine] : undefined,
-        endColumn: endColumn != null ? m[endColumn] : undefined,
+        endLine: isNaN(endLine) ? m[endLine] : undefined,
+        endColumn: isNaN(endColumn) ? m[endColumn] : undefined,
         message: formatMessage(message, m),
       });
     }
